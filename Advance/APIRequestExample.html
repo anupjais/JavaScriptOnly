@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">API Request example</h1>
+</body>
+<script>
+    const myurl = 'https://api.github.com/users/hiteshchoudhary'
+    // const myurl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', myurl);
+    xhr.onreadystatechange = function()
+    {
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4)
+        {
+            // console.log(this.responseText);
+            const data = JSON.parse(this.responseText);
+            console.log(`Name : ${data.name} No. of Repos : ${data.public_repos}`);
+            console.log(`GitHub url : ${data.url}`);
+            console.log(`GitHub url : ${data.html_url}`);
+            console.log(`Company ${data.company}`);
+            console.log(`Bio : ${data.bio}`);
+            console.log(`Followers : ${data.followers}`);
+            // avatar_url
+        }
+
+    }
+    // console.log(this.responseText)
+    xhr.send();
+
+</script>
+</html>
